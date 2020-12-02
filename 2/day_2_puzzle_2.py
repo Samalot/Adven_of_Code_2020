@@ -5,13 +5,14 @@ def run():
     totalValid = 0
 
     for data in Reader.read("input"):
-        s = data.split(": ")
+        policy, password = data.split(": ")
+        indexes, char = policy.split(" ")
+        a, b = [int(n)-1 for n in indexes.split("-")]
 
-        a = int(s[0].split(" ")[0].split("-")[0]) - 1
-        b = int(s[0].split(" ")[0].split("-")[1]) - 1
-        char = s[0].split(" ")[1]
+        x = (password[a] == char)
+        y = (password[b] == char)
 
-        if (s[1][a] == char or s[1][b] == char) and not (s[1][a] == char and s[1][b] == char):
+        if (x or y) and not (x and y):
             totalValid += 1
 
     return totalValid

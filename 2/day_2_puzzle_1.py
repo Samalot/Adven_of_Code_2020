@@ -5,18 +5,20 @@ def run():
     totalValid = 0
 
     for data in Reader.read("input"):
-        s = data.split(": ")
+        policy, password = data.split(": ")
+        policy, c = policy.split(" ")
 
-        minCount = int(s[0].split(" ")[0].split("-")[0])
-        maxCount = int(s[0].split(" ")[0].split("-")[1])
-        charCount = s[0].split(" ")[1]
+        minCount = int(policy.split("-")[0])
+        maxCount = int(policy.split("-")[1])
 
         count = 0
-        for char in s[1]:
-            if char == charCount:
+        for char in password:
+            if char == c:
                 count += 1
+                if count > maxCount:
+                    break
 
-        if count >= minCount and count <= maxCount:
+        if maxCount >= count >= minCount:
             totalValid += 1
 
     return totalValid

@@ -10,8 +10,7 @@ def run():
     for data in Reader.read("input"):
         if int(data) in seen:
             x = int(data)
-            print(x * (2020-x))
-            return
+            return x * (2020-x)
 
 
 print(f'Answer: {run()}')

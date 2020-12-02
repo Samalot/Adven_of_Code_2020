@@ -3,11 +3,9 @@ import Reader
 
 def run():
     numbers = []
-    seen = set()
 
     for data in Reader.read("input"):
-        x = int(data)
-        numbers.append(x)
+        numbers.append(int(data))
 
     combo = {}
     for i in range(len(numbers)-1):
@@ -19,8 +17,7 @@ def run():
     for i in range(len(numbers)):
         c = 2020 - numbers[i]
         if c in combo:
-            print(numbers[i] * numbers[combo[c][0]] * numbers[combo[c][1]])
-            return
+            return numbers[i] * numbers[combo[c][0]] * numbers[combo[c][1]]
 
 
 print(f'Answer: {run()}')
