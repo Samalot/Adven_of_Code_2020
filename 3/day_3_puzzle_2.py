@@ -15,7 +15,7 @@ def countTree(right, down):
         posY += down
 
         onSlope = posY < len(map)
-        
+
         if onSlope and map[posY][posX] == "#":
             total += 1
 
