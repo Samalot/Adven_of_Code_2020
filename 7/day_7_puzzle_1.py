@@ -2,7 +2,6 @@ import Reader
 
 
 def run():
-    totalValid = 0
     bagIDs = {}
     parents = {}
 
